@@ -19,7 +19,7 @@ def misafirKaydet():
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
         # veritabanı baglantisi
-        mydb=mysql.connector.connect(host="localhost",user="root",password="1453.Muhammed",database="plakalar")
+        mydb=mysql.connector.connect(host="localhost",user="root",password="",database="plakalar")
         mycursor=mydb.cursor()
         sorgu="INSERT INTO misafir (ad_soyad, tel, plaka, giris_saat) VALUES (%s, %s, %s, %s)"
         misafirinfos=(str(username.get()), str(tel.get()), plaka, formatted_date)
