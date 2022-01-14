@@ -56,7 +56,7 @@ def misafirGiris():
 
 def ssDB():
     if len(str(ad_soyad.get()))!=0 and len(str(tel_no.get()))!=0  and len(str(arac_markasi.get()))!=0 and len(str(arac_modeli.get()))!=0:
-        mydb=mysql.connector.connect(host="localhost",user="root",password="1453.Muhammed",database="plakalar")
+        mydb=mysql.connector.connect(host="localhost",user="root",password="",database="plakalar")
         mycursor=mydb.cursor()
         sorgu="INSERT INTO kullanicilar (plaka, ad_soyad, tel, blok_no, daire_no, araba_marka, araba_model) VALUES (%s, %s, %s, %s, %s, %s, %s)"
         ssinfos=(plaka, str(ad_soyad.get()), str(tel_no.get()), str(blok_no.get()), int(daire_no.get()), str(arac_markasi.get()), str(arac_modeli.get()))
@@ -151,7 +151,7 @@ def kapiAc():
     
 def arayuz(plaka):
     # okunan plaka kontrolu
-    mydb=mysql.connector.connect(host="localhost",user="root",password="1453.Muhammed",database="plakalar")
+    mydb=mysql.connector.connect(host="localhost",user="root",password="",database="plakalar")
     mycursor=mydb.cursor()
     mycursor.execute("SELECT plaka FROM kullanicilar")
     myresult=mycursor.fetchall()
@@ -169,7 +169,7 @@ def arayuz(plaka):
     if ctrl==0:
         # esit degilse menu acilacak araba bekleyecek
         print("Eşit Değil: "+plaka)
-        mydb2=mysql.connector.connect(host="localhost",user="root",password="1453.Muhammed",database="plakalar")
+        mydb2=mysql.connector.connect(host="localhost",user="root",password="",database="plakalar")
         mycursor2=mydb2.cursor()
         mycursor2.execute("SELECT plaka,cikis_saat FROM misafir")
         sonuclarim=mycursor2.fetchall()
